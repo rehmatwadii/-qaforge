@@ -1,0 +1,33 @@
+node_modules/
+.next/
+test-results/
+playwright-report/
+*.tsbuildinfo
+.env*
+public/monaco/
+public/sql-wasm.js
+public/sql-wasm.wasm
+
+# Local tools, machine metadata, and internal project brief
+.impeccable/
+.codex/
+.claude/
+.idea/
+.vscode/
+QAForge — SQA Career Simulator Game Master Prompt.md
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Credentials, logs, personal career exports, and backups
+.npmrc
+*.pem
+*.key
+*.p12
+*.pfx
+*.log
+qaforge-*.json
+qaforge-*-report.md
+saves/
+exports/
+backups/
