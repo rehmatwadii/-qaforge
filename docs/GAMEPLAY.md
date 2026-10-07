@@ -36,4 +36,4 @@ Career progress, main tool drafts, and assessment attempts save automatically in
 
 Use player settings to export or import a career. Abandon an assessment to return to career work; a new attempt needs fresh evidence. Previous attempts appear on the assessment desk. Completing the same mission again does not award its XP twice.
 
-The [README](../README.md#content-and-scope) explains the implemented scenario families and remaining scope.
+The [README](../README.md#current-scope) explains the implemented scenario families and remaining scope.

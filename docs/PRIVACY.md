@@ -19,3 +19,7 @@ Installed dependencies can contain their own example strings or paths; they are 
 Review the staged files and search them for actual credentials, private keys, personal email addresses, absolute machine paths, and confidential documents. `.gitignore` helps keep local files out of a new commit; it cannot remove information already committed to history.
 
 Use GitHub's no-reply email for commits if you do not want your personal email in commit metadata. Report an actual credential exposure privately to the affected service/account owner and revoke it; do not paste the credential into a public issue.
+
+## Documentation screenshots
+
+The committed gallery uses fictional demo data in a separate Playwright browser context. It does not read personal browser profiles or player exports. Review replacement screenshots before committing them; regular test reports and failure screenshots remain ignored. See the [capture process](SCREENSHOTS.md#regenerate-the-gallery).

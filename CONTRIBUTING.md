@@ -1,6 +1,6 @@
 # Development instructions
 
-Start with [setup](docs/SETUP.md), [gameplay](docs/GAMEPLAY.md), and the [project structure](README.md#project-structure). Use Node 24 and install dependencies with `npm ci`.
+Start with [setup](docs/SETUP.md), [gameplay](docs/GAMEPLAY.md), and the [project structure](README.md#project-map). Use Node 24 and install dependencies with `npm ci`.
 
 ## Verify a change
 
@@ -12,7 +12,7 @@ npx playwright install chromium
 npm run test:e2e
 ```
 
-The build generates Next.js route types needed by a clean checkout. Playwright starts a development server on port 3000 automatically, or reuses a running server. Stop any stale server before testing a different checkout. Screenshots and browser reports are local artifacts excluded from Git.
+The build generates Next.js route types needed by a clean checkout. Playwright starts a development server on port 3000 automatically, or reuses a running server. Stop any stale server before testing a different checkout. Browser test reports and failure screenshots are local artifacts excluded from Git. Documentation screenshots in `docs/screenshots/` are intentionally committed; run `npm run screenshots` to refresh the fictional demo gallery and review the images before publishing.
 
 The GitHub Actions workflow runs installation, build, type checking, unit tests, and Chromium browser tests on pushes to `main` and pull requests. It uses the standard GitHub Actions documented by [checkout](https://github.com/actions/checkout) and [setup-node](https://github.com/actions/setup-node).
 

@@ -1,10 +1,29 @@
-# QAForge — SQA Career Simulator
+<div align="center">
+  <img src="src/app/icon.svg" alt="QAForge logo" width="76" />
+  <h1>QAForge</h1>
+  <p><strong>SQA Career Simulator</strong></p>
+  <p>Your first day in QA. Your first reproducible bug. Your first release decision.</p>
 
-A playable local QA career game set at Nexora Technologies in Karachi. Built with Next.js, React, TypeScript, Monaco, and a real SQLite engine running in a browser worker.
+<a href="https://github.com/rehmatwadii/-qaforge/actions/workflows/ci.yml"><img src="https://github.com/rehmatwadii/-qaforge/actions/workflows/ci.yml/badge.svg" alt="Build and test status" /></a>
+  <p><strong>Next.js 16 &middot; React 19 &middot; TypeScript &middot; Monaco &middot; SQLite &middot; Node 24</strong></p>
+  <p><a href="#quick-start">Quick start</a> &middot; <a href="#a-look-inside">Visual tour</a> &middot; <a href="#feature-guide">Features</a> &middot; <a href="#independent-assessments">Assessments</a> &middot; <a href="docs/SCREENSHOTS.md">All screenshots</a></p>
+</div>
 
-## Run
+![QAForge career workstation](docs/screenshots/01-home.png)
 
-Use **Node.js 24 and npm**. The test toolchain requires Node 22.12 or newer on the Node 22 release line; Node 20 is not supported for full development. `.nvmrc` selects Node 24.
+QAForge puts you inside **Nexora Technologies**, a fictional software company in Karachi. Start as a QA Trainee and build a career by reviewing requirements, exploring staging apps, investigating APIs and data, reporting defects, repairing tests, and deciding whether a release is safe.
+
+The game rewards work you can explain and reproduce. Team feedback, deadlines, quality gates, and production consequences give that work context.
+
+|  Career campaign   | Skill tracks  | Staging products |       Practice catalog        |
+| :----------------: | :-----------: | :--------------: | :---------------------------: |
+| **17 assignments** | **13 skills** |  **3 products**  | **905 parameterized entries** |
+
+> Practice entries reuse implemented scenario families. The catalog count does not mean 905 independently authored investigations. See [current scope](#current-scope).
+
+## Quick start
+
+Use **Node.js 24 and npm**. No API keys, environment variables, external database, or game account are required.
 
 ```sh
 git clone https://github.com/rehmatwadii/-qaforge.git qaforge
@@ -13,61 +32,133 @@ npm ci
 npm run dev
 ```
 
-Open **http://127.0.0.1:3000**. Choose **Start your first mission** to clock in. Installation copies the SQL and Monaco runtime assets into `public/`; neither lab requires a CDN.
+Open **[127.0.0.1:3000](http://127.0.0.1:3000)**, choose **Start your first mission**, and clock in. Installation prepares local Monaco and SQLite assets; the labs do not depend on a CDN at runtime.
 
-No environment variables, API keys, or external database are needed.
-
-- [Setup, production commands, and troubleshooting](docs/SETUP.md)
-- [Player guide and independent assessments](docs/GAMEPLAY.md)
-- [Development and contribution instructions](CONTRIBUTING.md)
-- [Privacy, saves, and repository hygiene](docs/PRIVACY.md)
-
-For an optimized build:
+For a production build:
 
 ```sh
 npm run build
 npm start
 ```
 
-## Playable in this version
+Node 22.12 or newer on the Node 22 release line also satisfies the installed test toolchain. Node 20 is not supported for full development. `.nvmrc` selects Node 24.
 
-- Onboarding, a 17-assignment career campaign, compressed workdays, deadlines, NPC messages, standups, and schedule events.
-- Clickable ShopSphere storefront, cart, coupons, login, and signup; FinEdge transfers with a working balance and shared transaction ledger.
-- Five build profiles, including a clean build. Sandbox interactions generate observations rather than announcing defects.
-- Requirements investigation with clarification feedback; boundary test design with coverage evaluation.
-- Jira reports evaluated for completeness, reproduction evidence, build, duplicate status, and severity. Reports can be revised and resubmitted.
-- Postman-style requests with methods, JSON headers/body, bearer authorization, responses, history, persistence defects, object authorization, and payment retry behavior.
-- Actual SQLite queries, including joins, aggregates, subqueries, and CTEs. Queries run in a read-only worker with a five-second limit. API payments become queryable rows.
-- DevTools evidence inspection, desktop/mobile viewport controls, orientation, network conditions, and browser environment selection.
-- Local Monaco editor and an ordered Playwright-command interpreter for a login smoke test. Manual work unlocks automation. Selenium, Cypress, and Appium repair exercises provide limited syntax/rationale feedback.
-- Git command simulation, pipeline logs, a repair/branch/commit/push workflow, and a passing quality gate.
-- Deterministic load simulation with measured thresholds and an evaluated release recommendation.
-- Release evidence packets, release/block decisions, next-day production consequences, SQL-backed incident containment, and a ten-day sprint with artifact gates.
-- A six-round interview with free-form answers, follow-up prompts, and explicitly labeled local rubric feedback; fictional jobs and local job-description skill extraction.
-- XP, individual skills, achievements, reporting accuracy, reputation, performance-based promotion requirements, and fictional salary progression.
-- Independent hiring assessment: seven freshly evaluated work areas, a 60-minute simulated budget, final QA report, retries, and downloadable Markdown evidence summary. Previous career results do not satisfy a new attempt.
-- RelayDesk career capstone: an unfamiliar expense app with a shared UI/API/SQL ledger, risk strategy, twelve work areas, engineering fix candidate, retesting, expense regression, pipeline repair, and release recommendation. Passing the hiring test unlocks it.
-- Persistent requirements, test-case, Jira, API, SQL, automation, pipeline, release, and capstone drafts across tool changes and reload. Active attempts also resume from a save.
-- Automatic local saves, validated JSON import, and export. Open the profile settings using the top-right initial or the gear next to your name.
+| Need help with?                                                  | Read                                           |
+| ---------------------------------------------------------------- | ---------------------------------------------- |
+| Installation, hosting commands, missing assets, or browser setup | [Setup & troubleshooting](docs/SETUP.md)       |
+| First-day work, evidence, assessments, and saving progress       | [Player guide](docs/GAMEPLAY.md)               |
+| Changing the game and validating your work                       | [Development instructions](CONTRIBUTING.md)    |
+| Personal saves, fictional credentials, and safe publication      | [Privacy guide](docs/PRIVACY.md)               |
+| Every workspace and the screenshot capture process               | [Full screenshot gallery](docs/SCREENSHOTS.md) |
 
-## Content and scope
+## A look inside
 
-This is a substantial **working local version**, not the entire finished master-prompt product. The catalog has **17 campaign assignments plus 905 parameterized practice entries** matching the requested category counts. Practice entries share a limited set of implemented scenario families, build behaviors, SQL targets, and assessment rubrics. They are **not 905 independently authored investigations**. The 150 interview entries use six core questions with scenario contexts.
+These are **actual screenshots of the running application**, captured in a separate fictional demo career. The complete gallery covers every navigation destination, product workflows, technical results, framework exercises, assessments, and mobile layouts.
 
-The implemented career loop is: accept a mission → investigate in a working lab → gather evidence → submit → receive NPC feedback → earn skills → make delivery decisions. Repeating a completed mission does not award its XP again. Promotions require actual reporting accuracy and API/SQL evidence in addition to completed work.
+<table>
+  <tr>
+    <td width="50%"><strong>Explore a staging product</strong><br /><a href="docs/screenshots/05-shopsphere.png"><img src="docs/screenshots/05-shopsphere.png" alt="ShopSphere cart investigation with recorded coupon evidence" /></a><br />Interact with the cart and compare its behavior with the contract.</td>
+    <td width="50%"><strong>Follow the data</strong><br /><a href="docs/screenshots/12-sql.png"><img src="docs/screenshots/12-sql.png" alt="SQLite query returning the duplicate-payment investigation result" /></a><br />Run a real SQL query and verify the investigation target.</td>
+  </tr>
+  <tr>
+    <td><strong>Repair the delivery gate</strong><br /><a href="docs/screenshots/18-pipeline.png"><img src="docs/screenshots/18-pipeline.png" alt="Passing simulated pipeline with repair and Git command history" /></a><br />Replace a fixed wait, commit the repair, and rerun the pipeline.</td>
+    <td><strong>Own an unfamiliar product</strong><br /><a href="docs/screenshots/44-relaydesk-fixed.png"><img src="docs/screenshots/44-relaydesk-fixed.png" alt="RelayDesk fix candidate displaying ledger-consistent pending totals" /></a><br />Investigate RelayDesk, request a fix candidate, and retest its controls.</td>
+  </tr>
+</table>
 
-Current boundaries:
+**[Browse all 46 screenshots ?](docs/SCREENSHOTS.md)**
 
-- Local, single-player saves; no PostgreSQL/Prisma backend, login, cloud synchronization, or multiplayer.
-- Playwright, Git, HTTP services, device conditions, and load metrics are simulations. Only SQL is executed by a general-purpose query engine. The automation interpreter supports the documented login and expense visibility/ledger assertions; it does not execute arbitrary JavaScript or real browsers.
-- Browser selection records an environment; it does not emulate independent browser rendering engines. Device/network controls model selected behaviors rather than a complete mobile OS.
-- NPCs, bug grading, interviews, and job parsing use deterministic rules, not an LLM. Free-form evaluation is approximate and displayed as such.
-- The main products cover selected workflows, not every commerce/banking feature in the brief. Deep KYC, OTP, refunds, admin, card controls, permissions/lifecycle simulation, and accessibility-specific missions remain expansion work.
-- The hiring test and capstone each use one authored scenario. Additional assessment variants, advanced career specializations, and a genuinely authored 150-question interview bank remain expansion work.
-- Sprints can be restarted with your existing career artifacts. Catalog sprint entries reuse the same ten-day scenario structure.
-- Storefront cart state and some secondary workspace controls reset when leaving their workspace. The main work drafts, career artifacts, evidence, API history, shared ledgers, and completed results persist.
+## The career loop
 
-## Verification
+**Accept an assignment ? understand the contract ? investigate ? collect evidence ? submit work ? act on feedback ? make the delivery decision.**
+
+Actions consume simulated work time. Accepted work earns XP and skill growth; reporting accuracy, evidence, and release judgment affect your progression. Repeating a completed mission does not award its XP again.
+
+## Feature guide
+
+### The company and your career
+
+| Feature                         | What you can do                                                                                                                                                                                                                    |
+| ------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **First-day onboarding**        | Clock in at 09:00, receive your simulated employee identity and workstation, meet Maya, and open your first assignment.                                                                                                            |
+| **Campaign & practice library** | Follow 17 career assignments or search and filter 905 parameterized practice entries across the implemented QA categories.                                                                                                         |
+| **NPC team & work schedule**    | Work with fictional QA, engineering, product, and operations teammates; receive assignment feedback, standup reminders, and schedule events.                                                                                       |
+| **Slack & email workspaces**    | Send contextual team updates and receive simulated replies. Clear updates contribute to communication progress; no real messages are sent.                                                                                         |
+| **Career progression**          | Grow through seven roles from QA Trainee to QA Lead. Track XP, reputation, reporting accuracy, achievements, job readiness, and fictional salary progression. Promotions require evidence of competence as well as completed work. |
+| **Skill map**                   | Develop Manual QA, Test design, Requirements, API, SQL, DevTools, Automation, Mobile, Performance, Security, CI/CD, Release judgment, and Communication.                                                                           |
+| **Mentor assistance**           | Request progressively more specific guidance during career work. Additional hints cost mission points; independent assessments disable hints.                                                                                      |
+| **Responsive workstation**      | Use desktop and mobile layouts, collapsed navigation, and keyboard shortcuts: `/` for mission search, `?` for mentor assistance, and `Esc` to close dialogs.                                                                       |
+
+### Three products to investigate
+
+| Product        | Working scenarios                                                                                                                                                                                                   |
+| -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **ShopSphere** | Storefront, cart quantities, coupons, checkout, login, signup, password validation, profile persistence, and device/network observations. Different build profiles include faulty behavior and a clean build.       |
+| **FinEdge**    | Transfers with amount and balance constraints, beneficiary selection, a changing account balance, and a transaction ledger shared with API/SQL investigations.                                                      |
+| **RelayDesk**  | Employee expense claims, amount boundaries, approval authorization, and pending totals backed by a shared UI/API/SQL ledger. The capstone adds an engineering fix candidate and product-specific regression checks. |
+
+### Manual testing and investigation
+
+| Workspace                     | What makes the work count                                                                                                                                                                                                                                            |
+| ----------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Requirements**              | Flag acceptance criteria that need clarification and ask measurable questions. Submit the review for rubric-based feedback.                                                                                                                                          |
+| **Test Cases**                | Build acceptance/rejection cases at each boundary, including preconditions and executable steps. Submit the suite for coverage evaluation.                                                                                                                           |
+| **Test Lab**                  | Explore real clickable product interfaces, compare before/after states, and capture observations in the evidence notebook. Defects emerge through behavior.                                                                                                          |
+| **Jira**                      | Write reports with environment, build, preconditions, reproduction steps, expected/actual behavior, severity, priority, and supporting evidence. Reports are checked for completeness, reproducibility, duplicates, and severity; revise and resubmit rejected work. |
+| **Device & network controls** | Select device sizes, rotate the sandbox, change browser environment labels, and model online/offline conditions. These controls support selected responsive and failure scenarios.                                                                                   |
+| **DevTools**                  | Inspect captured network traces, responses, console observations, and storage information. Submit a request-level finding with the relevant endpoint, status, and investigation step.                                                                                |
+
+### APIs, data, automation, and delivery
+
+| Workspace                                | Working behavior                                                                                                                                                                                                                        |
+| ---------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Postman Lab**                          | Send simulated HTTP requests with methods, endpoints, bearer authorization, JSON bodies, and headers. Inspect status codes, response bodies, duration, history, persistence failures, cross-account authorization, and payment retries. |
+| **SQL Lab**                              | Execute real SQLite queries in a read-only browser worker. Use joins, aggregates, subqueries, and CTEs against the current ledger. Results are compared with the mission target; queries have a five-second limit.                      |
+| **Automation Lab**                       | Write supported Playwright-style commands in a local Monaco editor. Run an ordered login smoke scenario or RelayDesk visibility/ledger regression. Automation unlocks after manual reporting and test-design work.                      |
+| **Selenium, Cypress & Appium exercises** | Repair example synchronization/selector code and submit a concrete rationale. These are limited syntax-and-concept exercises, not installed driver executions.                                                                          |
+| **Git & CI/CD simulator**                | Inspect failed job logs, repair the readiness assertion, create a branch, stage, commit, push, and rerun the simulated quality gate. The gate requires a committed and pushed repair.                                                   |
+| **Performance Lab**                      | Run a deterministic capacity model at the requested load. Inspect P95/P99, error rate, throughput, CPU, and memory, then approve or block against the acceptance thresholds.                                                            |
+| **Release Center**                       | Review evidence packets and submit a release, conditional-release, or block recommendation with impact and next steps. A risky payment release can trigger a next-day production incident.                                              |
+| **Incident command**                     | Correlate the payment alert with API/SQL evidence, investigate duplicate charges, and choose containment such as rollback or disabling the payment feature.                                                                             |
+| **Sprint Room**                          | Work through ten simulated days with artifact gates, team updates, changing scope, and a final quality summary. Restart a sprint while keeping existing career artifacts.                                                               |
+
+The **in-game Git/HTTP/automation/load tools are constrained simulations**. SQL is executed by a general-purpose SQLite engine. Separately, this repository's **GitHub Actions workflow runs real build, typecheck, unit, and Chromium browser checks**.
+
+### Job preparation and saved work
+
+- **Interview Arena:** six practical rounds covering communication, prioritization, API investigation, SQL, release judgment, and automation. Write free-form answers, respond to follow-up prompts, and review local rubric feedback and the final breakdown.
+- **Job Board:** review fictional roles, paste a job description, extract skill/experience requirements locally, compare your readiness, and jump into training for a missing skill.
+- **Persistent work:** main requirements, test-case, Jira, API, SQL, automation, pipeline, release, and capstone drafts survive tool changes and reload.
+- **Career backups:** save automatically in the current browser, export a JSON career, and import a validated save from player settings. Some secondary controls and storefront cart state reset on navigation.
+
+## Independent assessments
+
+### Junior SQA hiring test
+
+**ShopSphere &middot; 60 simulated minutes &middot; seven work areas**
+
+Produce fresh requirements, test design, exploration, bug reporting, API, SQL, and release artifacts. Assessment action times are compressed. Previous career results cannot satisfy a new attempt.
+
+Pass with **75/100 overall**, **at least 70 in every required area**, a complete final report, and an on-time submission. Retry attempts are archived, and **Export work report** downloads the current attempt's work summary as Markdown.
+
+![Independent hiring assessment work packet](docs/screenshots/35-hiring-assessment.png)
+
+### First week of ownership: RelayDesk
+
+**Unfamiliar expense product &middot; five simulated workdays &middot; twelve work areas**
+
+Pass the hiring test to unlock the capstone. Define a risk strategy, understand the contract, investigate the product, design cases, report reproducible defects, communicate with the team, inspect DevTools, test APIs, validate SQL, retest engineering's fix candidate, execute regression, repair the pipeline, and give a final QA recommendation.
+
+The capstone requires fresh work across the twelve assessed areas and an accepted report covering its critical authorization risk. Its automation checks use the current expense ledger.
+
+<table>
+  <tr>
+    <td width="50%"><a href="docs/screenshots/41-capstone-api.png"><img src="docs/screenshots/41-capstone-api.png" alt="RelayDesk API retest rejecting an invalid claim after the engineering fix" /></a><br /><strong>Retest the reported risks</strong></td>
+    <td width="50%"><a href="docs/screenshots/43-capstone-regression.png"><img src="docs/screenshots/43-capstone-regression.png" alt="Passing RelayDesk regression comparing pending total with the current ledger" /></a><br /><strong>Prove the regression outcome</strong></td>
+  </tr>
+</table>
+
+## Verify and develop
 
 ```sh
 npm run build
@@ -77,24 +168,46 @@ npx playwright install chromium
 npm run test:e2e
 ```
 
-The browser tests cover onboarding and save/reload, requirements scoring, hidden-cart reproduction and Jira acceptance, real SQL, API persistence, release consequences and recovery, automation, the Git/pipeline workflow, test design, complete hiring and capstone submissions, draft recovery, navigation, and responsive layout. Unit tests also verify assessment deadlines, fresh evidence, save migration, reward idempotence, fix behavior, and expense regression failures. Screenshots are produced under `test-results/`.
+The functional suite covers **31 unit tests and 17 browser tests**, including complete hiring and capstone submissions, save/reload, requirements, Jira acceptance, SQL, APIs, release consequences, incident recovery, automation, pipeline repair, and responsive layout.
 
-The included GitHub Actions workflow runs these checks on `main` pushes and pull requests. The current local version passed **31 unit tests, 17 browser tests, and a production build**.
+Regenerate the documentation screenshots separately:
 
-## Project structure
+```sh
+npm run screenshots
+```
 
-| File                                | Responsibility                                                                          |
-| ----------------------------------- | --------------------------------------------------------------------------------------- |
-| `src/lib/content.ts`                | Campaign, scenario families, practice catalog, team, specifications, interview rubrics  |
-| `src/lib/engine.ts`                 | Career state, clock, rewards, evidence, Jira grading, promotions, save validation       |
-| `src/lib/simulations.ts`            | HTTP state machine, constrained automation runner, SQL investigation targets            |
-| `src/lib/assessments.ts`            | Independent attempts, assessment rubric, RelayDesk ledger and fix candidate             |
-| `src/components/assessments.tsx`    | Assignment brief, work packet, risk strategy, final report, retries, report export      |
-| `src/components/relay-desk.tsx`     | Unfamiliar expense application with observable submission, approval, and total behavior |
-| `src/components/Workstation.tsx`    | Navigation, home, persistence, onboarding, team, career                                 |
-| `src/components/manual-labs.tsx`    | Requirements, test design, interactive test apps, Jira                                  |
-| `src/components/technical-labs.tsx` | API, SQL, DevTools, automation, Git/CI, load testing                                    |
-| `src/components/career-labs.tsx`    | Release, incidents, sprint, interview, job matching                                     |
-| `public/sql-worker.js`              | Isolated, read-only SQLite execution                                                    |
+This runs a dedicated demo capture scenario and writes PNGs to `docs/screenshots/`. It does not use your personal browser profile or exported career. See [capture details](docs/SCREENSHOTS.md#regenerate-the-gallery).
 
-To add a genuinely new mission, add its scenario data and expected behavior, implement its evaluation against observed evidence, then add tests for the valid path and plausible incorrect submissions. Raising the catalog count alone does not add new gameplay.
+## Project map
+
+| Location                                            | Responsibility                                                                    |
+| --------------------------------------------------- | --------------------------------------------------------------------------------- |
+| `src/lib/content.ts`                                | Campaign, practice families, team, specifications, interview rubrics              |
+| `src/lib/engine.ts`                                 | Career state, clock, rewards, evidence, Jira grading, promotions, save validation |
+| `src/lib/assessments.ts`                            | Independent attempts, grading, RelayDesk ledger, engineering fix candidate        |
+| `src/lib/simulations.ts`                            | HTTP state machine, constrained automation runner, SQL targets                    |
+| `src/components/Workstation.tsx`                    | Navigation, home, persistence, onboarding, team, career                           |
+| `src/components/manual-labs.tsx`                    | Requirements, test design, interactive products, Jira                             |
+| `src/components/technical-labs.tsx`                 | API, SQL, DevTools, automation, Git/CI, load testing                              |
+| `src/components/career-labs.tsx`                    | Release, incidents, sprint, interviews, job matching                              |
+| `src/components/assessments.tsx` / `relay-desk.tsx` | Assessment desk and unfamiliar expense product                                    |
+| `public/sql-worker.js`                              | Isolated, read-only SQLite execution                                              |
+| `scripts/capture-screenshots.spec.ts`               | Reproducible documentation capture with fictional demo data                       |
+| `docs/screenshots/`                                 | Committed screenshots of the working application                                  |
+
+## Current scope
+
+QAForge is a **working local version** of an ambitious career simulator. Its limits are part of the documentation:
+
+- Local, single-player saves; no application login, PostgreSQL/Prisma backend, cloud synchronization, or multiplayer.
+- HTTP services, Git, Playwright commands, device conditions, and load metrics are simulated. Automation does not execute arbitrary JavaScript or launch browsers inside the game.
+- Browser labels record an environment; they do not emulate separate rendering engines. Device/network controls model selected behaviors.
+- NPC replies, bug grading, interview feedback, and job parsing use deterministic rules, not an LLM. Free-form scores are approximate.
+- The **905 practice entries** reuse a limited number of scenario families. The **150 interview entries** reuse six core questions with scenario contexts. Each independent assessment currently has one authored scenario.
+- Deep KYC, OTP, refunds, admin/card controls, full permissions/lifecycle simulation, accessibility-specific missions, advanced specializations, and a larger independently authored scenario bank remain expansion work.
+
+## Privacy
+
+All included people, products, customer data, balances, and test credentials are fictional. `.test` addresses and `nexora-test-token` are simulation fixtures. User-entered names, drafts, answers, and job descriptions can appear in personal career exports; review those files before sharing.
+
+Secrets, machine diagnostics, internal project notes, generated assets, test artifacts, and personal exports are excluded from Git. The screenshots use dedicated demo data. Read the [privacy guide](docs/PRIVACY.md) for storage and publication details.
