@@ -66,11 +66,11 @@ These are **actual screenshots of the running application**, captured in a separ
   </tr>
 </table>
 
-**[Browse all 46 screenshots ?](docs/SCREENSHOTS.md)**
+**[Browse all 46 screenshots](docs/SCREENSHOTS.md)**
 
 ## The career loop
 
-**Accept an assignment ? understand the contract ? investigate ? collect evidence ? submit work ? act on feedback ? make the delivery decision.**
+**Accept an assignment &rarr; understand the contract &rarr; investigate &rarr; collect evidence &rarr; submit work &rarr; act on feedback &rarr; make the delivery decision.**
 
 Actions consume simulated work time. Accepted work earns XP and skill growth; reporting accuracy, evidence, and release judgment affect your progression. Repeating a completed mission does not award its XP again.
 
